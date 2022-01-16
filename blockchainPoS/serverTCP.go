@@ -2,14 +2,14 @@ package blockchainPoS
 
 import (
 	"os"
-	"bufio"
 	"io"
 	"log"
-	"time"
 	"net"
+	"time"
+	"bufio"
 	"strconv"
-	"encoding/json"
 	"math/rand"
+	"encoding/json"
 )
 
 var bcServer chan []Block
