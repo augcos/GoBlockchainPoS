@@ -2,16 +2,12 @@ package blockchainPoS
 
 import (
 	"time"
-	"sync"
 	"crypto/sha256"
 	"encoding/hex"
 )
 
-// var Blockchain contains the blockchain data
+// var Blockchain contains the multiple Blocks
 var Blockchain []Block
-
-var mutex = &sync.Mutex{}
-
 type Block struct {
 	BlockNumber int
 	BlockTime 	string
@@ -21,7 +17,7 @@ type Block struct {
 	Validator	string
 }
 
-// CalculateHash() returns the hash of a given block
+// CalculateHash() returns the sha256 of a given string
 func CalculateHash(s string) string{
 	h := sha256.New()
 	h.Write([]byte(s))
@@ -36,7 +32,7 @@ func CalculateBlockHash(block Block) string{
 	return CalculateHash(record)
 }
 
-// GenerateBlock() returns a pointer to a newly create block
+// GenerateBlock() creates a new block given the previous block, a string and the validator's address
 func GenerateBlock(prevBlock Block, data string, address string) (Block, error) {
 	var nextBlock Block
 	t := time.Now()
@@ -65,7 +61,7 @@ func IsBlockValid(prevBlock, nextBlock Block) bool {
 	return true
 }
 
-// IsBlockValid() checks if all blocks in a blockchain are valid
+// IsBlockchainValid() checks if all blocks in a blockchain are valid
 func IsBlockchainValid(testedChain []Block) bool {
 	for i:=1; i<(len(testedChain)-1); i++ {
 		if !IsBlockValid(testedChain[i-1],testedChain[i]) {
