@@ -188,9 +188,9 @@ func pickWinner() {
 				mutex.Unlock()
 				for addr := range validators {
 					if addr==lotteryWinner {
-						announcements <- "\nWinning validator: " + lotteryWinner + "\nEnter a new string: "
-					} else {
 						announcements <- "\nCongrats! You won the validation.\nEnter a new string: "
+					} else {
+						announcements <- "\nWinning validator: " + lotteryWinner + "\nEnter a new string: "						
 					}
 					proposedBlock[addr] = false
 				}
