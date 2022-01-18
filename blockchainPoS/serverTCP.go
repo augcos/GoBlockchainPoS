@@ -169,7 +169,7 @@ func pickWinner() {
 			// each validator gets proportional representation in the lotteryPool to its number of tokens
 			tokens, ok := setValidators[block.Validator]
 			if ok {
-				for i:=0; i<k; i++ {
+				for i:=0; i<tokens; i++ {
 					lotteryPool = append(lotteryPool, block.Validator)
 				}
 			}
