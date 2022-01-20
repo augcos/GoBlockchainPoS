@@ -5,7 +5,7 @@ This project is my personal Go implementation of a proof-of-stake blockchain pro
 ## How to install?
 First, you will have to make sure to have preinstalled the required third-party packages. You can install them using the following commands:
 ```
-github.com/joho/godotenv
+go get github.com/joho/godotenv
 ```
 You can clone this repository to your local system using the command:
 ```
@@ -14,9 +14,9 @@ git clone github.com/augcos/GoBlockchainPoS
 
 ## How to run?
 ### Using a TCP connection
-GoBlockchainPoS runs using a TCP server. In order to launch both the server and the blockchain, run the blockchain.go file:
+GoBlockchainPoS runs using a TCP server. In order to launch both the server and the blockchain, run the main.go file:
 ```
-go run blockchain.go
+go run main.go
 ```
 Then, open a different terminal and connect to the TCP server:
 ```
